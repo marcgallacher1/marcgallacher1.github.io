@@ -1,0 +1,4 @@
+localhost:3306
+emb21127
+emb21127
+ohVohphiet2D
