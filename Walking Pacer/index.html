@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Walking Pacer</title>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = yes">
+    <meta name = "apple-mobile-web-app-capable" content = "yes">
+    <meta name = "apple-mobile-web-app-status-bar-style" content = "black-translucent">
+    <meta name = "mobile-web-app-capable" content = "yes">
+    <link rel = "icon" type = "image/jpg" href = "Walking.jpg">
+    <link rel = "stylesheet" href = "style.css">
+    <link rel = "apple-touch-icon" sizes = "180x180" href="Walking.jpg">
+    <link rel = "preconnect" href="https://fonts.googleapis.com">
+    <link rel = "preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <main>
+        <div id="inputZone">
+            <div class="input-group">
+                <span>Time:</span><p id="time">0</p><p>minutes</p>
+            </div>
+            <div class="input-group">
+                <span>Distance:</span><p id="distance">0</p><p>metres</p>
+            </div>
+            <div class="input-group">
+                <span>Pace:</span><p id="pace">--</p>
+            </div>
+        </div>
+
+        <div id = "keypad">
+
+                <button id = "b7">7</button>
+                <button id = "b8">8</button>
+                <button id = "b9">9</button>
+                <button id = "b4">4</button>
+                <button id = "b5">5</button>
+                <button id = "b6">6</button>
+                <button id = "b1">1</button>
+                <button id = "b2">2</button>
+                <button id = "b3">3</button>
+                <button id = "C">C</button>
+                <button id = "b0">0</button>
+                <button id = "Arr">&larr;</button>
+
+        </div>
+
+        <div id = "liveZone">
+            <button id = "Start">Start</button>
+            <p id = "liveDistance">Live Distance: 0m</p>
+            <p id="livePace">Average Pace: -- mins/km</p>
+        </div>
+        <div id = "inclineZone">
+            <p id = "inclinePrompt">◬ Tap to show incline ◬</p>
+        </div>
+    </main>
+    <script src = "madone.js"></script>
+</body>
+</html>
