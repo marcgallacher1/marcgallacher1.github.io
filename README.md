@@ -5,7 +5,7 @@ This app demonstrates my web/app development expertise and my ability to collabo
 
 University Student Management System (Java): A collaborative project managing student data (results, classes, and lecturers) using Java and a relational database, emphasizing my skills in teamwork, communication, and back-end development.
 
-Cryptogram Game (Java): A solo project focused on problem-solving, building a game to decode secret messages.
+Cryptogram Game (Java): A group project where we developed a game that challenges users to decode secret messages. I largely contributed to both the design and logic of the game, improving my problem-solving and collaborative coding skills.
 
 Art Shop (PHP): A web-based art shop using PHP and MySQL, with custom styling in CSS, showcasing my full-stack development skills.
 
