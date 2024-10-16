@@ -1,0 +1,621 @@
+body, html {
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    font-family: Sans-serif, serif;
+    background-color: rgb(255, 170, 59);
+    overscroll-behavior-y: none;
+}
+
+#app {
+    background: linear-gradient(0deg, rgb(28, 13, 72) 0%, rgb(162, 15, 98) 50%, rgb(255, 170, 59) 100%);
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 1rem;
+}
+
+#mainHeader, #headerText {
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#mainHeader {
+    font-size: 8vh;
+    margin: 25vh 0 0 0;
+}
+
+#headerText {
+    font-size: 6vh;
+    margin: 5rem 0 2rem 0;
+    text-align: center;
+}
+
+p {
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 5rem 0 2rem 0;
+    font-size: 3vh;
+}
+.centered-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.header-icon {
+    width: 10vh;
+    margin-top: 7rem;
+    cursor: pointer;
+}
+
+.header-title {
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 6vh;
+    margin: 2rem 0;
+}
+
+
+#breathingPageHeader {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#homeIconContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+
+#homeIcon {
+    cursor: pointer;
+}
+
+.button {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 1rem 1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    color: #421a5d;
+    font-size: 2.5vh;
+    font-family: monospace;
+    width: 10rem;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#todo-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
+    width: 80%;
+    margin: auto;
+}
+
+#add-task {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 10;
+}
+
+#task-input, #add-task-btn {
+    height: 4rem;
+    padding: 0 1rem;
+    margin: 2rem 0;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#task-input {
+    flex-grow: 1;
+    border-radius: 0.5rem;
+    font-size: 2vh;
+    border: 0;
+    width: 10%;
+    margin-left: 1rem;
+    margin-right: 0.5rem
+}
+
+#add-task-btn {
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    font-size: 2vh;
+    cursor: pointer;
+    border: 0;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    font-family: monospace;
+    color: #421a5d;
+}
+
+#task-list, #completed-task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.delete-task-btn {
+    margin-left: auto;
+    padding: 0 1rem;
+    font-size: 1.8vh;
+    height: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: #ff6666;
+    color: white;
+}
+
+.delete-task-btn:hover {
+    background-color: #ff4d4d;
+}
+
+#task-list li, #completed-task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.status-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+#completed-tasks-container {
+    display: none;
+    width: 100%;
+}
+
+.completed-text {
+    text-decoration: line-through;
+}
+
+#homeIcon {
+    position: absolute;
+    top: 1.5rem;
+    text-align: center;
+    width: 5vh;
+    cursor: pointer;
+}
+
+#dayLogForm {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+#dayLogForm input, #dayLogForm textarea, #dayLogForm button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: inherit;
+}
+
+#dayLogForm button {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#dayLogForm button:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+
+#reflection, #breathing{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
+    width: 80%;
+    margin: auto;
+}
+
+#journal{
+
+    text-align: center;
+}
+
+
+#reflection h1 {
+    margin: 0;
+}
+
+#quoteDisplay{
+
+    font-family: "fantasy";
+    font-size:24px;
+
+
+}
+
+@keyframes flyInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.headerTextMood {
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10vw;
+    min-font-size: 36px;
+    max-font-size: 130px;
+    text-align: center;
+}
+
+.dataText {
+    font-family: monospace;
+    color: #FFF;
+    font-size: 8vw;
+    min-font-size: 28px;
+    max-font-size: 100px;
+    text-align: center;
+}
+
+#reflectionPresentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.slide {
+    display: none;
+    flex: 0 0 auto;
+    width: 100%;
+
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+
+.comment-fly-in {
+    animation: flyInFromLeft 1s ease-out;
+}
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dataText {
+    animation: fadeIn 1s ease-out;
+    animation-delay: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.calendar-container {
+    width: 80%;
+    margin: 1rem auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    padding: 1.3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#datepicker {
+    display: flex;
+    justify-content: center; /* Center the calendar horizontally */
+}
+
+/* Navigation buttons */
+.pika-prev, .pika-next {
+    text-align: center;
+    background-color: #421a5d;
+    color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pika-prev:hover, .pika-next:hover {
+    background-color: #5a3f8c;
+}
+
+.pika-button {
+    border: none;
+    background-color: transparent;
+    color: #421a5d;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.pika-button:hover {
+    background-color: #f4f0fa;
+}
+
+#datepicker .pika-single .is-selected .pika-button,
+#datepicker .pika-single .is-selected .pika-button.has-reflection,
+#datepicker .pika-single .is-selected .pika-button.is-today {
+    background-color: #421a5d !important;
+    color: white !important;
+}
+
+.is-today .pika-button:not(.is-selected) {
+    background-color: #8c65b3;
+}
+
+.pika-button.has-reflection:not(.is-selected){
+    background-color: rgba(255, 165, 0, 0.6);
+    color: white;
+}
+
+#calendar-legend {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.legend-item {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.legend-selected-date { background-color: #421a5d; }
+.legend-today { background-color: #8c65b3; }
+.legend-reflection { background-color: rgba(255, 165, 0, 0.6); }
+
+
+
+.animate {
+    animation: flyInFromLeft 1s forwards;
+}
+
+.reflectionsWrapped {
+    text-align: center;
+}
+
+.date-section, .presentation-section {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.nav-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav-arrow {
+    font-size: 2em;
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+#quotes-display {
+    text-align: center;
+    font-family: 'monospace';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    margin: 0 3rem 0 3rem;
+}
+
+#quote-intro {
+    margin-bottom: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: monospace;
+    font-size: 1.125rem;
+    padding: 0 0.625rem;
+}
+
+#quoteCategory {
+    font-family: monospace;
+    font-size: 1rem;
+    margin: 0.625rem 0;
+    padding: 0.625rem 0.9375rem;
+    border-radius: 0.5rem; /* 8px to rem */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #421a5d;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.quote {
+    font-size: 1.05rem;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.author {
+    font-size: 1rem;
+    margin-right: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+#quoteMessage {
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+}
+
+#address-input-css {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#address-input {
+    padding: 0.625rem;
+    font-size: 1rem;
+    border: 0.125rem solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.3125rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #421a5d;
+    margin: 3.5rem 0 0 3.5rem;
+}
+
+#submit-address {
+    margin-top: 3.5rem;
+    padding: 0;
+    text-align: center;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    color: #421a5d;
+    font-size: 2.2vh;
+    font-family: monospace;
+    width: 4.5rem;
+    height: 2.8rem;
+
+}
+
+#submit-address:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+#map-legend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+    margin-top: 3rem;
+    border: 0.125rem solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.3125rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.legend-color {
+    height: 15px;
+    width: 15px;
+    margin-right: 0.5rem;
+    border-radius: 100%;
+    border: 0.07rem solid rgba(255, 255, 255, 0.5);
+}
+
+
+.legend-text {
+    font-family: monospace;
+    color: white;
+    font-size: 2vh;
+}
+
+#map-info {
+    text-align: center;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0.7rem 0;
+    font-size: 2.7vh;
+}
+
+#map {
+    height: 23rem;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
