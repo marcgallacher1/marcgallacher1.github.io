@@ -1,0 +1,372 @@
+  #blocklyContainer {
+    position: relative;
+    width: 100%;
+    height: 90vh; 
+  }
+  
+  #blocklyDiv {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  #runButton {
+    display: block;
+    margin: 10px auto; 
+    padding: 10px 20px;
+    font-size: 16px;
+    background: linear-gradient(145deg, #4CAF50, #2E7D32); 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  #runButton:hover {
+    background: linear-gradient(145deg, #2E7D32, #4CAF50);
+  }
+  
+  #trashBin { 
+    position: absolute;
+    bottom: 70px; 
+    right: 25px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #fff;             
+    background: linear-gradient(145deg, #d9534f, #a94442); 
+    cursor: pointer;
+    z-index: 1000;            
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+  }
+  #trashBin:hover {
+    background: linear-gradient(145deg, #a94442, #d9534f);
+  }
+  
+
+  #homeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 48px;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease;
+    background: linear-gradient(145deg, #000000, #777777); 
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #homeButton:hover {
+    background: linear-gradient(145deg, #777777, #000000);
+  }
+
+  #hintButton {
+    position: absolute;
+    top: 100px;  
+    right: 15px; 
+    font-size: 48px;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease;
+    background: linear-gradient(145deg, rgb(39,32,245), rgb(100,60,230)); 
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #hintButton:hover {
+    background: linear-gradient(145deg, rgb(100,60,230), rgb(39,32,245));
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 99999;
+    display: none;
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: left; 
+  }
+  
+  .modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #007bff;
+  }
+
+  .modal-content.modal-content-wide {
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .modal-content pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .modal-content pre code {
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  #renameVariableModal {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999; 
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content.rename-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal-content.rename-content h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  #renameVariableInput {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .rename-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .rename-buttons button {
+    padding: 8px 14px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .rename-buttons button:hover {
+    opacity: 0.9;
+  }
+  #renameConfirmBtn {
+    background-color: #007bff;
+    color: white;
+  }
+  #renameCancelBtn {
+    background-color: rgb(240, 73, 73);
+    color: white;
+  }
+  
+  #variableChoiceModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+  }
+  #variableChoiceModal .modal-content {
+    background: #fff;
+    padding: 16px;        
+    border-radius: 6px;     
+    min-width: 280px;       
+    display: flex;
+    flex-direction: column;
+    gap: 10px;              
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  #variableChoiceModal h2 {
+    margin: 0;
+    font-size: 1.3em;
+  }
+  #variableChoiceModal p {
+    margin: 0;
+    font-size: 0.95em;
+  }
+  
+  .choice-buttons button {
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  
+  .choice-buttons #renameOption {
+    background-color: #007bff; 
+  }
+  .choice-buttons #renameOption:hover {
+    background-color: #0056b3; 
+  }
+  
+  .choice-buttons #chooseOption {
+    background-color: #2884a8; 
+  }
+  .choice-buttons #chooseOption:hover {
+    background-color: #176c7d; 
+  }
+
+  #existingVariablesModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #existingVariablesModal .modal-content {
+    background: #fff;
+    padding: 16px;
+    border-radius: 6px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  #existingVariablesModal h2 {
+    margin: 0;
+    font-size: 1.1em;
+  }
+  
+  #existingVariablesModal p {
+    margin: 0;
+    font-size: 0.95em;
+  }
+  
+  
+  #existingVariablesList {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  #existingVariablesList button {
+    background-color: #a524b6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  #existingVariablesList button:hover {
+    background-color: #883ba1;
+  }
+  
+  .existing-buttons {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  
+  .existing-buttons button {
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  #renameBtn {
+    background-color: #5ac9eb;
+    color: #fff;
+  }
+  #renameBtn:hover {
+    background-color: #217bdb;
+  }
+  
+  
+  #cancelChooseBtn {
+    background-color: red;
+    color: #fff;
+  }
+  #cancelChooseBtn:hover {
+    background-color: #c80000; 
+  }

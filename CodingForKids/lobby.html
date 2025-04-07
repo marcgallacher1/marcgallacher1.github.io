@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby</title>
+
+    <link rel = "stylesheet" href="/static/css/lobby.css" >
+    <link rel = "stylesheet" href="/static/icons/bootstrap-icons.css">
+
+</head>
+<body>
+
+    <div id="loading-screen">
+        <p>Loading...</p>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+
+    <div id="lobby-container">
+        <canvas id="lobbyCanvas"></canvas>
+        <img id="ferrisWheelGif" src="/static/Animations/Ferris_Wheel.gif" alt="Ferris Wheel Animation">
+    </div>
+
+    <div id="login-container" {% if logged_in %} style="display: none;" {% endif %}>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="login-error" class="error-message" style="display: none;">
+            <i class="bi bi-exclamation-circle-fill error-icon"></i>
+            <span id="login-error-text"></span>
+        </p>
+
+        <div id="create-account">
+            <span>Don't have an account? </span>
+            <button id="create-account-btn" onclick="navigateToRegister()">Create one</button>
+        </div>
+    </div>
+
+    <div id="register-container" style="display: none;">
+        <form id="register-form">
+            <label for="reg-username">Username:</label>
+            <input type="text" id="reg-username" name="username" required>
+
+            <label for="reg-email">Email:</label>
+            <input type="email" id="reg-email" name="email" required>
+
+            <label for="reg-password">
+                Password:
+                <i class="bi bi-info-circle" id="password-info" data-title="Password must be at least 8 characters, include an uppercase letter, a number, and a special character."></i>
+            </label>
+
+            <input type="password" id="reg-password" name="password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <label for="reg-year">Year of School:</label>
+            <select id="reg-year" name="year_of_school" required>
+                <option value="Primary 5">Primary 5</option>
+                <option value="Primary 6">Primary 6</option>
+                <option value="Primary 7">Primary 7</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+            </select>
+
+            <button type="submit">Create Account</button>
+
+            <p id="register-error" class="error-message" style="display: none;">
+                <i class="bi bi-exclamation-circle-fill error-icon"></i>
+                <span id="register-error-text"></span>
+            </p>
+        </form>
+
+        <button id="back-to-login-btn" onclick="navigateToLogin()">Back</button>
+    </div>
+
+    <div id="play-container" {% if not logged_in %} style="display: none;" {% endif %}>
+        <button id="play-button">Play</button>
+        <button id="quiz-button">Quiz</button>
+        <button id="logout-button">Logout</button>
+    </div>
+
+    <script src="/static/js/lobby.js" defer></script>
+
+</body>
+</html>

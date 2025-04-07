@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding for Kids</title>
+
+  <script src="{{ url_for('static', filename='blockly/blockly.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='blockly/python_compressed.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='icons/bootstrap-icons.css') }}">
+
+</head>
+<body>
+
+  <div id="homeButton" class="bi bi-house"></div>
+  
+  
+  <div id="blocklyContainer" style ="position: relative">
+    <div id="blocklyDiv"></div>
+  </div>
+
+  <div id="tutorialTooltip"></div>
+
+  <div id="dimOverlay" class="overlay"></div>
+
+  <div id="hintButton" class="bi bi-question-circle"></div>
+ 
+  <div id="tutorialBox" class="tutorial-box">
+      <p id="tutorialText">Welcome to the game! Before you start coding, let's go through a quick tutorial.</p>
+      <button id="nextTutorialStep">Next</button>
+  </div>
+
+  
+  <div id="trashBin" class="bi bi-trash"></div>
+
+  <div class="gameBtn-container">
+    <button id="runButton">Run Code</button>
+    <button id="showSolution">Show Solution</button>
+  </div>
+  
+  
+  <div id="lessonModal" class="modal">
+    <div class="modal-content lesson-content">
+      <header class="lesson-header">
+        <h1 id="lessonModalHeading">Default Heading</h1>
+      </header>
+     
+      <div class="lesson-body">
+        <div class="lesson-description" id="lessonModalDescription">
+          <p>Default description...</p>
+          <pre><code>print("Example code")</code></pre>
+        </div>
+        <div class="lesson-image">
+          <img id="lessonModalImage" src="" alt="Modal Image">
+        </div>
+      </div>
+      <button id="closeLessonModal">Next</button>
+    </div>
+  </div>
+
+
+  <div id="renameVariableModal" class="modal">
+    <div class="modal-content rename-content">
+      <h2>Rename Variable</h2>
+      <input type="text" id="renameVariableInput" />
+      <div class="rename-buttons">
+        <button id="renameConfirmBtn">Confirm</button>
+        <button id="renameCancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div id="variableChoiceModal" class="modal">
+    <div class="modal-content">
+      <h2>Variable Options</h2>
+      <p>How would you like to proceed?</p>
+      <div class="choice-buttons">
+        <button id="renameOption">Rename Variable</button>
+        <button id="chooseOption">Choose Existing Variable</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="existingVariablesModal" class="modal">
+    <div class="modal-content">
+      <h2>Choose an Existing Variable</h2>
+      <div id="existingVariablesList"></div>
+      <div class="existing-buttons">
+        <button id="renameBtn">Rename variable...</button>
+        <button id="cancelChooseBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultModal" class="modal">
+    <div class="modal-content">
+      <p id="modalMessage"></p>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <div id="freePlayModal" class="modal freeplay-modal">
+    <div class="modal-content freeplay-modal-content">
+      <div id="freePlayModalMessage"></div>
+      <button id="freePlayClose">Close</button>
+    </div>
+  </div>
+
+  <script src="/static/js/game.js" ></script>
+  <script src="/static/js/solutions.js" ></script>
+  <script src="/static/js/lessons.js" ></script>
+  <script src="/static/js/lessons2.js" ></script>
+  <script src="/static/js/sharedLogic.js" ></script>
+  </body>
+</html>

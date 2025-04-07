@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Quiz</title>
+
+  <script src="{{ url_for('static', filename='blockly/blockly.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='blockly/python_compressed.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/quizLobby.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='icons/bootstrap-icons.css') }}">
+</head>
+<body>
+
+  <div id="loading-screen">
+      <p>Loading...</p>
+      <div id="progress-container">
+          <div id="progress-bar"></div>
+      </div>
+  </div>
+
+  <div id="homeButton" class="bi bi-house"></div>
+
+  <canvas id="quizLobbyCanvas"></canvas>
+
+  <div id="lobby-container">
+      <canvas id="lobbyCanvas"></canvas>
+      <img id="ferrisWheelGif" src="/static/Animations/Ferris_Wheel.gif" alt="Ferris Wheel Animation">
+  </div>
+
+  <div id="quiz-container">
+    <h1>Select a Quiz</h1>
+    <div class="quiz-row">
+      <div class="quiz-column">
+        <button id="quiz1-btn" class="quiz-button" onclick="startQuiz('quiz_1')">
+          Quiz 1: Variables
+          <span class="star-container">
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+          </span>
+        </button>
+  
+        <button id="quiz2-btn" class="quiz-button" onclick="startQuiz('quiz_2')">
+          Quiz 2: Conditionals
+          <span class="star-container">
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+          </span>
+        </button>
+      </div>
+  
+      <div class="quiz-column">
+        <button id="quiz3-btn" class="quiz-button" onclick="startQuiz('quiz_3')">
+          Quiz 3: Arrays and Loops
+          <span class="star-container">
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+          </span>
+        </button>
+  
+        <button id="quiz4-btn" class="quiz-button" onclick="startQuiz('quiz_4')">
+          Quiz 4: Functions
+          <span class="star-container">
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+            <i class="bi bi-star"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  
+        fetch("/get-progress")
+            .then(response => response.json())
+            .then(data => {
+                const progress = data.progress;
+                
+                // Initialize each quiz button's highScore and update star display
+                const quiz1Btn = document.getElementById("quiz1-btn");
+                if (quiz1Btn && progress.quiz_1_score !== undefined) {
+                    quiz1Btn.dataset.highScore = progress.quiz_1_score;
+                    updateScoreDisplay("quiz_1", progress.quiz_1_score, "quiz");
+                }
+                const quiz2Btn = document.getElementById("quiz2-btn");
+                if (quiz2Btn && progress.quiz_2_score !== undefined) {
+                    quiz2Btn.dataset.highScore = progress.quiz_2_score;
+                    updateScoreDisplay("quiz_2", progress.quiz_2_score, "quiz");
+                }
+                const quiz3Btn = document.getElementById("quiz3-btn");
+                if (quiz3Btn && progress.quiz_3_score !== undefined) {
+                    quiz3Btn.dataset.highScore = progress.quiz_3_score;
+                    updateScoreDisplay("quiz_3", progress.quiz_3_score, "quiz");
+                }
+                const quiz4Btn = document.getElementById("quiz4-btn");
+                if (quiz4Btn && progress.quiz_4_score !== undefined) {
+                    quiz4Btn.dataset.highScore = progress.quiz_4_score;
+                    updateScoreDisplay("quiz_4", progress.quiz_4_score, "quiz");
+                }
+            })
+            .catch(error => console.error("Error fetching progress:", error));
+    });
+  
+    function startQuiz(quiz) {
+        fetch("/update-progress", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ level: quiz })
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.location.href = "/quiz?quiz=" + quiz;
+        })
+        .catch(error => console.error("Error updating quiz progress:", error));
+    }
+  </script>
+
+  <script src="/static/js/quizLobby.js" ></script>
+  <script src="/static/js/sharedLogic.js" ></script>
+</body>
+</html>

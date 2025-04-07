@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Level</title>
+
+    <script src="{{ url_for('static', filename='blockly/blockly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='blockly/python_compressed.js') }}"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gameLobby.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='icons/bootstrap-icons.css') }}">
+
+</head>
+<body>
+
+  <div class="complete-banner" id="tutorialCompleteBanner">
+    Tutorial Completed! Well Done!
+  </div>
+
+  <div class="complete-banner" id="level1CompleteBanner">
+      Level 1 Completed! Well Done!
+  </div>
+
+  <div class="complete-banner" id="level2CompleteBanner">
+      Level 2 Completed! Well Done!
+  </div>
+
+  <div class="complete-banner" id="level3CompleteBanner">
+      Level 3 Completed! Well Done!
+  </div>
+
+  <div class="complete-banner" id="level4CompleteBanner">
+    Level 4 Completed! Well Done!
+</div>
+
+  <div id="loading-screen">
+      <p>Loading...</p>
+      <div id="progress-container">
+          <div id="progress-bar"></div>
+      </div>
+  </div>
+
+  <div id="homeButton" class="bi bi-house"></div>
+
+  <canvas id="gameLobbyCanvas"></canvas>
+
+  <div id="lobby-container">
+      <canvas id="lobbyCanvas"></canvas>
+      <img id="ferrisWheelGif" src="/static/Animations/Ferris_Wheel.gif" alt="Ferris Wheel Animation">
+  </div>
+
+  <div id="level-container">
+  <h1>Select a Level</h1>
+
+  <div class="single-button-row">
+    <button id="tutorial-btn" class = "no-star-button" onclick="startGame('tutorial')">Tutorial</button>
+  </div>
+
+  <div class="level-row">
+    <div class="level-column">
+      <button id="level1-btn" class="level-button" onclick="startGame('level_1')" disabled>
+        Level 1: Variables
+        <span class="star-container">
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+        </span>
+      </button>
+
+      <button id="level2-btn" class="level-button" onclick="startGame('level_2')" disabled>
+        Level 2: Conditionals
+        <span class="star-container">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+        </span>
+      </button>
+    </div>
+
+    <div class="level-column">
+      <button id="level3-btn" class="level-button" onclick="startGame('level_3')" disabled>
+        Level 3: Arrays and Loops
+        <span class="star-container">
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+        </span>
+      </button>
+
+      <button id="level4-btn" class="level-button" onclick="startGame('level_4')" disabled>
+        Level 4: Functions
+        <span class="star-container">
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="single-button-row">
+    <button id="freeplay-btn" class = "no-star-button" onclick="startGame('free_play')">Free Play</button>
+  </div>
+</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        fetch("/get-progress")
+            .then(response => response.json())
+            .then(data => {
+                const progress = data.progress;
+                
+                // Initialize each button's highScore and update star display
+                const level1Btn = document.getElementById("level1-btn");
+                if (level1Btn && progress.level_1_score !== undefined) {
+                    level1Btn.dataset.highScore = progress.level_1_score;
+                    updateScoreDisplay("level_1", progress.level_1_score);
+                }
+                const level2Btn = document.getElementById("level2-btn");
+                if (level2Btn && progress.level_2_score !== undefined) {
+                    level2Btn.dataset.highScore = progress.level_2_score;
+                    updateScoreDisplay("level_2", progress.level_2_score);
+                }
+                const level3Btn = document.getElementById("level3-btn");
+                if (level3Btn && progress.level_3_score !== undefined) {
+                    level3Btn.dataset.highScore = progress.level_3_score;
+                    updateScoreDisplay("level_3", progress.level_3_score);
+                }
+                const level4Btn = document.getElementById("level4-btn");
+                if (level4Btn && progress.level_4_score !== undefined) {
+                    level4Btn.dataset.highScore = progress.level_4_score;
+                    updateScoreDisplay("level_4", progress.level_4_score);
+                }
+
+                const tutorialButton = document.getElementById("tutorial-btn");
+                const level1Button = document.getElementById("level1-btn");
+                const level2Button = document.getElementById("level2-btn");
+                const level3Button = document.getElementById("level3-btn");
+                const level4Button = document.getElementById("level4-btn");
+                const tutorialBanner = document.getElementById("tutorialCompleteBanner");
+                const level1Banner = document.getElementById("level1CompleteBanner");
+                const level2Banner = document.getElementById("level2CompleteBanner");
+                const level3Banner = document.getElementById("level3CompleteBanner");
+                const level4Banner = document.getElementById("level4CompleteBanner");
+
+                if (!level1Button || !level2Button || !level3Button || !level4Button ||
+                    !tutorialBanner || !level1Banner || !level2Banner || !level3Banner) {
+                    console.error("Required elements not found in the DOM!");
+                    return;
+                }
+
+                tutorialButton.disabled = false;
+
+                // Display banners based on sessionStorage flags
+                if (sessionStorage.getItem("level4Completed") === "true") {
+                    sessionStorage.removeItem("level4Completed");
+                    showBanner(level4Banner);
+                } else if (sessionStorage.getItem("level3Completed") === "true") {
+                    sessionStorage.removeItem("level3Completed");
+                    showBanner(level3Banner);
+                } else if (sessionStorage.getItem("level2Completed") === "true") {
+                    sessionStorage.removeItem("level2Completed");
+                    showBanner(level2Banner);
+                } else if (sessionStorage.getItem("level1Completed") === "true") {
+                    sessionStorage.removeItem("level1Completed");
+                    showBanner(level1Banner);
+                } else if (sessionStorage.getItem("tutorialCompleted") === "true") {
+                    sessionStorage.removeItem("tutorialCompleted");
+                    showBanner(tutorialBanner);
+                }
+            })
+            .catch(error => console.error("Error fetching progress:", error));
+    });
+
+
+    function showBanner(bannerElement) {
+        bannerElement.style.display = "block";
+        setTimeout(() => { bannerElement.classList.add("show"); }, 100);
+        setTimeout(() => {
+            bannerElement.classList.remove("show");
+            setTimeout(() => { bannerElement.style.display = "none"; }, 500);
+        }, 5000);
+    }
+
+    // Start game dependant on level
+    function startGame(level) {
+        window.location.href = "/game?level=" + level;
+        }
+  </script>
+  <script src="/static/js/gameLobby.js" ></script>
+  <script src="/static/js/lessons.js" ></script>
+  <script src="/static/js/lessons2.js" ></script>
+  <script src="/static/js/sharedLogic.js" ></script>
+
+  </body>
+</html>
