@@ -1,0 +1,19 @@
+# Ignore virtual environment
+venv/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore large Pyodide files
+static/pyodide/
+*.whl
+
+# Ignore Blockly files
+static/blockly/
+
+# Ignore IDE and OS-specific files
+*.log
+.DS_Store
+*.tmp
+*.bak
+*.swp
