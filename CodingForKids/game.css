@@ -1,0 +1,614 @@
+#blocklyContainer {
+  position: relative;
+  width: 100%;
+  height: 90vh; 
+}
+#blocklyDiv {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+.gameBtn-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px; 
+  margin: 10px 0;
+}
+
+#runButton {
+  padding: 12px 34px;
+  font-size: 17.2px;
+  background: linear-gradient(145deg, #4CAF50, #2E7D32); 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#runButton:hover {
+  background: linear-gradient(145deg, #2E7D32, #4CAF50);
+}
+
+#showSolution {
+  padding: 12px 22px;
+  font-size: 17.2px;
+  background: linear-gradient(145deg, #2196F3, #0D47A1);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#showSolution:hover {
+  background: linear-gradient(145deg, #0D47A1, #2196F3);
+}
+
+#trashBin { 
+  position: absolute;
+  bottom: 70px;   
+  right: 25px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: #fff;             
+  background: linear-gradient(145deg, #d9534f, #a94442); 
+  cursor: pointer;
+  z-index: 1000;            
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+}
+#trashBin:hover {
+  background: linear-gradient(145deg, #a94442, #d9534f);
+}
+
+
+#homeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+  background: linear-gradient(145deg, #000000, #777777); 
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#homeButton:hover {
+  background: linear-gradient(145deg, #777777, #000000);
+}
+
+#hintButton {
+  position: absolute;
+  top: 100px;  
+  right: 15px; 
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease;
+  background: linear-gradient(145deg, rgb(39,32,245), rgb(100,60,230)); 
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#hintButton:hover {
+  background: linear-gradient(145deg, rgb(100,60,230), rgb(39,32,245));
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 99999;
+  display: none;
+}
+
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  text-align: left; 
+}
+
+.modal-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+
+.modal-content.modal-content-wide {
+  max-width: 600px;
+  text-align: left;
+}
+
+
+.close button,
+.modal-content button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close:hover,
+.modal-content button:hover {
+  background-color: #007bff;
+}
+
+
+.modal-content pre {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.modal-content pre code {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: left;
+}
+
+
+.freeplay-modal .freeplay-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+}
+
+
+.freeplay-modal .code-container {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+
+.freeplay-modal .code-container code {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.freeplay-modal .freeplay-modal-content button {
+  display: block;
+  margin: 0 auto;      
+  margin-top: 10px;    
+  padding: 8px 16px;    
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.tutorial-box {
+  display:none;
+  position: fixed;        
+  top: 50%;               
+  left: 50%;              
+  transform: translate(-50%, -50%);
+  background: white;
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+  z-index: 2000;
+}
+
+#nextTutorialStep {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+#nextTutorialStep:hover {
+  background-color: #0056b3;
+}
+
+
+#tutorialTooltip {
+  position: fixed;
+  white-space: pre-line;
+  background: #fff;
+  border: 1px solid #000; 
+  border-radius: 6px;
+  padding: 15px; 
+  width: 220px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  display: none;
+  z-index: 99999;
+}
+
+#lessonModal {
+  display: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 100000;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-content.lesson-content {
+  background: #fff;
+  border-radius: 8px;
+  width: 70%;
+  max-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh; 
+  overflow: hidden;  
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: clamp(16px, 2vw, 22px);
+}
+
+
+.lesson-header {
+  align-self: flex-start;
+}
+.lesson-header h1 {
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+}
+
+
+.lesson-body {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  overflow-y: auto;   
+  overflow-x: hidden; 
+}
+
+
+.lesson-description {
+  flex: 1 1 auto;
+  line-height: 1.5;
+  padding-right: 5px;
+  min-width: 0;       
+}
+
+
+.lesson-description p {
+  margin-bottom: 15px;
+  font-size: clamp(14px, 1.8vw, 18px);
+}
+
+
+.lesson-description pre code {
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+  background: #a8a7a7;
+  padding: 8px;
+  border-radius: 4px;
+  display: block;
+}
+
+.lesson-image {
+  flex: 0 0 30%;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.lesson-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; 
+}
+
+
+.modal-content.lesson-content button {
+  margin-top: 20px;
+  align-self: center;
+  padding: 10px 20px;
+  font-size: clamp(14px, 2vw, 18px);
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.modal-content.lesson-content button:hover {
+  background-color: #0056b3;
+}
+
+
+@media (max-width: 600px) {
+  .modal-content.lesson-content {
+    width: 90%;
+    max-height: 90vh; 
+  }
+  .lesson-body {
+    flex-direction: column;
+  }
+  .lesson-image {
+    margin-top: 10px;
+  }
+}
+
+
+#renameVariableModal {
+  display: none;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100vw; 
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999; 
+  justify-content: center;
+  align-items: center;
+}
+.modal-content.rename-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal-content.rename-content h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+#renameVariableInput {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.rename-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.rename-buttons button {
+  padding: 8px 14px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.rename-buttons button:hover {
+  opacity: 0.9;
+}
+#renameConfirmBtn {
+  background-color: #007bff;
+  color: white;
+}
+#renameCancelBtn {
+  background-color: rgb(240, 73, 73);
+  color: white;
+}
+
+#variableChoiceModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+}
+#variableChoiceModal .modal-content {
+  background: #fff;
+  padding: 16px;        
+  border-radius: 6px;     
+  min-width: 280px;       
+  display: flex;
+  flex-direction: column;
+  gap: 10px;              
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#variableChoiceModal h2 {
+  margin: 0;
+  font-size: 1.3em;
+}
+#variableChoiceModal p {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.choice-buttons button {
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+
+.choice-buttons #renameOption {
+  background-color: #007bff; 
+}
+.choice-buttons #renameOption:hover {
+  background-color: #0056b3; 
+}
+
+.choice-buttons #chooseOption {
+  background-color: #2884a8; 
+}
+.choice-buttons #chooseOption:hover {
+  background-color: #176c7d; 
+}
+
+#existingVariablesModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+}
+
+#existingVariablesModal .modal-content {
+  background: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#existingVariablesModal h2 {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+#existingVariablesModal p {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+
+#existingVariablesList {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+#existingVariablesList button {
+  background-color: #a524b6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#existingVariablesList button:hover {
+  background-color: #883ba1;
+}
+
+.existing-buttons {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.existing-buttons button {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#renameBtn {
+  background-color: #5ac9eb;
+  color: #fff;
+}
+#renameBtn:hover {
+  background-color: #217bdb;
+}
+
+
+#cancelChooseBtn {
+  background-color: red;
+  color: #fff;
+}
+#cancelChooseBtn:hover {
+  background-color: #c80000; 
+}
+
+.lesson-description pre code {
+  font-size: 0.75em;        
+  white-space: pre;        
+  overflow-x: auto;        
+  display: block;         
+  background: #f8f8f8;     
+  padding: 8px;           
+  border-radius: 4px;      
+}

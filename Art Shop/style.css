@@ -1,0 +1,192 @@
+/*index.php*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    margin: 20px 0;
+}
+
+
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+
+
+form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+input[type='submit'] {
+    background-color: #0000FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 8px 16px;
+    background-color: #0000FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+.basket-icon {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*admin.php*/
+
+.admin-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.admin-form {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type='password'] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form input[type="date"],
+.admin-form textarea {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.admin-form input[type="submit"] {
+    background-color: #0000FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*orders.php*/
+
+.order-form {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    text-align: left;
+}
+
+.order-form p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.order-form input[type='text'],
+.order-form input[type='email'],
+.order-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.order-form textarea {
+    height: 100px;
+}
+
+.order-form input[type='submit'] {
+    background-color: #0000FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+}
+
+@media screen and (max-width: 768px) {
+    .order-form {
+        width: 90%;
+    }
+}
+
+.back_button {
+    background-color: #0000FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/*Art Css*/
+.art_css {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin: 30px auto;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.art_details {
+    text-align: left;
+    flex: 1;
+}
