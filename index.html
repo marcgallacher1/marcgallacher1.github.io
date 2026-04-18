@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Marc Gallacher</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><link rel="stylesheet" href="/_astro/index.BapH-dJ7.css"></head> <body class="light-mode"> <!-- Navbar --> <nav class="navbar navbar-expand-lg fixed-top"> <div class="container"> <a class="navbar-brand" href="#">Marc Gallacher</a> <div class="d-flex align-items-center order-lg-1"> <div class="form-check form-switch d-flex align-items-center ms-3"> <input class="form-check-input" type="checkbox" id="modeToggle" onchange="toggleMode()"> <label class="form-check-label ms-2" for="modeToggle"> <i id="modeIcon" class="bi bi-moon-fill"></i> </label> </div> </div> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse justify-content-end" id="navbarNav"> <ul class="navbar-nav ms-auto"> <li class="nav-item"><a class="nav-link" href="#about">About</a></li> <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li> <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> </ul> </div> </div> </nav> <!-- Hero --> <section class="hero" id="home"> <div class="container text-center" data-aos="fade-up"> <div class="profile-avatar">MG</div> <h1 class="display-3 fw-bold mb-2">Marc Gallacher</h1> <p class="lead mb-1"> <span id="typewriter"></span><span class="typewriter-cursor"></span> </p> <p id="uni-label" class="mb-3" style="font-size: 0.95rem; letter-spacing: 0.03em; opacity: 0; transition: opacity 0.4s ease;">University of Strathclyde</p> <p class="mb-4 mx-auto" style="max-width: 640px; opacity: 0.85;">
+Computer Science graduate passionate about building great software. Check out my work below or get in touch.
+</p> <div class="d-flex gap-3 justify-content-center flex-wrap"> <a href="https://github.com/marcgallacher1/marcgallacher1.github.io" target="_blank" class="btn btn-outline-light"> <i class="bi bi-github me-2"></i>Portfolio
+</a> <a href="/assets/Marc_Gallacher_CV.pdf" target="_blank" class="btn btn-outline-light"> <i class="bi bi-file-earmark-person me-2"></i>View CV
+</a> </div> <div class="scroll-down">↓</div> </div> </section> <!-- Projects --> <section id="projects" class="projects-section"> <div class="container px-3"> <h2 class="text-center" data-aos="fade-up">Projects</h2> <!-- Coding for Kids --> <div class="row justify-content-center align-items-center gy-4 mb-5" data-aos="fade-up"> <div class="col-lg-5"> <div class="position-relative"> <img src="/images/Game-Screenshot-main.png" class="img-fluid rounded w-100" alt="Coding for Kids main screen"> <div class="gallery-trigger" data-bs-toggle="modal" data-bs-target="#galleryModal" title="View gallery"> <i class="bi bi-images"></i> </div> </div> </div> <div class="col-lg-7 text-center text-lg-start"> <h3 class="mb-3">Coding for Kids</h3> <p class="mb-2">
+My university dissertation: a story-driven educational game built to teach beginner programming concepts to P6 to S2 students. Built with HTML, JavaScript, CSS, and Blockly, with a secure Python and Flask backend.
+            Includes interactive challenges, real-time feedback, and an engaging storyline.
+</p> <p class="mb-3"><strong>Tested with S1 students</strong>, boosting engagement, motivation, and test results.</p> <a href="https://github.com/marcgallacher1/marcgallacher1.github.io/tree/main/CodingForKids" target="_blank" class="project-link"> <i class="bi bi-github"></i> View on GitHub
+</a> </div> </div> <!-- MindCraft --> <div class="row justify-content-center align-items-center gy-4 mb-5" data-aos="fade-up"> <div class="col-lg-5 d-flex justify-content-center"> <div class="position-relative"> <img src="/images/MindCraft1.png" class="img-fluid rounded" style="max-width:280px; max-height:420px; object-fit:contain; display:block; margin:0 auto;" alt="MindCraft main screen"> <div class="gallery-trigger" data-bs-toggle="modal" data-bs-target="#mindcraftGallery" title="View gallery"> <i class="bi bi-images"></i> </div> </div> </div> <div class="col-lg-7 text-center text-lg-start"> <h3 class="mb-3">MindCraft</h3> <p class="mb-2">
+A wellbeing web app built to help users track mood, reduce stress, and build healthy habits.
+</p> <p class="mb-3">Built for mobile using HTML, CSS, and JavaScript.</p> <a href="https://github.com/marcgallacher1/marcgallacher1.github.io/tree/main/Mindcraft" target="_blank" class="project-link"> <i class="bi bi-github"></i> View on GitHub
+</a> </div> </div> <!-- Personal Website --> <div class="row justify-content-center align-items-center gy-4 mb-5" data-aos="fade-up"> <div class="col-lg-5"> <div class="position-relative"> <img src="/images/Website.png" class="img-fluid rounded w-100" alt="Personal website screenshot"> </div> </div> <div class="col-lg-7 text-center text-lg-start"> <h3 class="mb-3">Personal Website</h3> <p class="mb-2">
+The site you're on right now! Originally built with vanilla HTML, CSS, and JavaScript, then rebuilt in Astro for a modern, fast experience.
+</p> </div> </div> </div> </section> <!-- About --> <section id="about" class="about-section"> <div class="container text-center" data-aos="fade-up" style="max-width: 800px;"> <h2 class="mb-4">About Me</h2> <p class="mb-3">
+I'm a Computer Science graduate from the University of Strathclyde, graduating with a <strong>First Class Honours degree</strong>. Since August 2025 I've been working as a Software Engineer, building and shipping production web applications, including developing a full production website from the ground up.
+</p> <p class="mb-3">
+I have hands-on experience across the full stack: React and Vue.js on the frontend, Python on the backend, PostgreSQL for data, and running production jobs and services. I'm always looking to learn new technologies and continue growing as an engineer.
+</p> <p class="mb-3">
+I'm a friendly, confident, and outgoing individual who thrives in collaborative environments. Through university projects and professional work, I've developed strong teamwork, communication, and time management skills, consistently meeting deadlines and delivering quality under pressure.
+</p> <p class="mb-4">
+Outside of tech, I spent a summer working at a US summer camp through Camp America, where I developed leadership and adaptability in a fast-paced, demanding environment.
+</p> <div class="skills-grid" data-aos="fade-up"> <span class="skill-badge">HTML / CSS</span> <span class="skill-badge">JavaScript</span> <span class="skill-badge">React</span> <span class="skill-badge">Vue.js</span> <span class="skill-badge">Python</span> <span class="skill-badge">PostgreSQL</span> <span class="skill-badge">SQL</span> <span class="skill-badge">Flask</span> <span class="skill-badge">Git</span> <span class="skill-badge">Java</span> </div> <a href="/assets/Marc_Gallacher_CV.pdf" target="_blank" class="btn btn-outline-light mt-5">
+View My CV
+</a> </div> </section> <!-- Contact --> <section id="contact" class="contact-section"> <div class="container text-center" data-aos="fade-up"> <h2 class="mb-4">Get in Touch</h2> <p class="mb-4 text-muted">Feel free to reach out via the form or directly:</p> <ul class="list-unstyled mb-4"> <li class="mb-2"> <i class="bi bi-envelope-fill me-2"></i> <a href="mailto:marc.gallacher10@gmail.com">marc.gallacher10@gmail.com</a> </li> <li class="mb-2"> <i class="bi bi-linkedin me-2"></i> <a href="https://www.linkedin.com/in/marcgallacher/" target="_blank">LinkedIn</a> </li> <li class="mb-2"> <i class="bi bi-github me-2"></i> <a href="https://github.com/marcgallacher1" target="_blank">GitHub</a> </li> </ul> <form id="contactForm" method="POST" class="mx-auto" style="max-width: 600px;"> <input type="hidden" name="_captcha" value="false"> <input type="text" class="form-control mb-3" name="name" placeholder="Your Name" required> <input type="email" class="form-control mb-3" name="email" placeholder="Your Email" required> <textarea class="form-control mb-3" name="message" placeholder="Your Message" style="height: 150px;" required></textarea> <button type="submit" class="btn btn-outline-light">Send Message</button> </form> <div id="formStatus" style="display:none; margin-top:12px; color:#4ade80; font-weight:600;">
+Your message has been sent!
+</div> </div> </section> <!-- Footer --> <footer class="site-footer"> <div class="footer-links"> <a href="mailto:marc.gallacher10@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a> <a href="https://www.linkedin.com/in/marcgallacher/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a> <a href="https://github.com/marcgallacher1" target="_blank" title="GitHub"><i class="bi bi-github"></i></a> </div> <p class="footer-copy">© 2025 Marc Gallacher</p> </footer> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>
+    // ── Theme toggle ──────────────────────────────────────────────
+    function toggleMode() {
+      const body = document.body;
+      const icon = document.getElementById('modeIcon');
+      const isLight = body.classList.toggle('light-mode');
+      icon.className = isLight ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    }
+
+    window.onload = () => {
+      const stored = localStorage.getItem('theme');
+      const icon = document.getElementById('modeIcon');
+      const toggle = document.getElementById('modeToggle');
+      const isLight = !stored || stored === 'light';
+      document.body.classList.toggle('light-mode', isLight);
+      icon.className = isLight ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+      if (toggle) toggle.checked = isLight;
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    };
+
+    // ── AOS init ──────────────────────────────────────────────────
+    AOS.init({ duration: 700, once: true, offset: 60 });
+
+    // ── Typewriter ────────────────────────────────────────────────
+    (function () {
+      const phrases = ['Software Engineer', 'Full-Stack Developer', 'Computer Science Graduate'];
+      let pi = 0, ci = 0, deleting = false;
+      const el = document.getElementById('typewriter');
+      const uniLabel = document.getElementById('uni-label');
+      if (!el) return;
+      function tick() {
+        const word = phrases[pi];
+        el.textContent = deleting ? word.slice(0, ci - 1) : word.slice(0, ci + 1);
+        deleting ? ci-- : ci++;
+        if (uniLabel) {
+          uniLabel.style.opacity = (phrases[pi] === 'Computer Science Graduate') ? '0.6' : '0';
+        }
+        if (!deleting && ci === word.length) {
+          deleting = true;
+          return setTimeout(tick, 1800);
+        }
+        if (deleting && ci === 0) {
+          deleting = false;
+          pi = (pi + 1) % phrases.length;
+        }
+        setTimeout(tick, deleting ? 45 : 95);
+      }
+      tick();
+    })();
+
+    // ── Active nav on scroll ──────────────────────────────────────
+    (function () {
+      const sections = document.querySelectorAll('section[id]');
+      const links = document.querySelectorAll('.nav-link');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+            if (a) a.classList.add('active');
+          }
+        });
+      }, { threshold: 0.35 });
+      sections.forEach(s => observer.observe(s));
+    })();
+
+    // ── Contact form ──────────────────────────────────────────────
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        try {
+          const res = await fetch('https://formsubmit.co/marc.gallacher10@gmail.com', {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            const status = document.getElementById('formStatus');
+            status.style.display = 'block';
+            status.style.opacity = '1';
+            setTimeout(() => {
+              status.style.transition = 'opacity 1s ease-out';
+              status.style.opacity = '0';
+              setTimeout(() => { status.style.display = 'none'; }, 1000);
+            }, 3000);
+            contactForm.reset();
+          } else {
+            alert('There was an error. Please try again later.');
+          }
+        } catch (err) {
+          alert('There was an error. Please try again later.');
+        }
+      });
+    }
+  </script> <!-- Coding for Kids Gallery --> <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true"> <div class="modal-dialog modal-lg modal-dialog-centered"> <div class="modal-content bg-dark text-white"> <div class="modal-header border-0"> <h5 class="modal-title">Coding for Kids Gallery</h5> <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button> </div> <div class="modal-body text-center"> <img src="/images/Game-Screenshot-main.png" class="img-fluid mb-3 rounded" alt="Screenshot 1"> <img src="/images/Level Screen-unlocked.png" class="img-fluid mb-3 rounded" alt="Screenshot 2"> <img src="/images/Game-Screenshot-two.png" class="img-fluid mb-3 rounded" alt="Screenshot 3"> <img src="/images/Game Blocks.png" class="img-fluid mb-3 rounded" alt="Screenshot 4"> <img src="/images/Finish-Lesson.png" class="img-fluid mb-3 rounded" alt="Screenshot 5"> <img src="/images/Quiz Lobby.png" class="img-fluid mb-3 rounded" alt="Screenshot 6"> <img src="/images/Quiz-Opening.png" class="img-fluid mb-3 rounded" alt="Screenshot 7"> <img src="/images/Quiz Blocks.png" class="img-fluid mb-3 rounded" alt="Screenshot 8"> <img src="/images/Quiz-Finish.png" class="img-fluid mb-3 rounded" alt="Screenshot 9"> </div> </div> </div> </div> <!-- MindCraft Gallery --> <div class="modal fade" id="mindcraftGallery" tabindex="-1" aria-hidden="true"> <div class="modal-dialog modal-lg modal-dialog-centered"> <div class="modal-content bg-dark text-white"> <div class="modal-header border-0"> <h5 class="modal-title">MindCraft Gallery</h5> <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button> </div> <div class="modal-body text-center"> <img src="/images/MindCraft1.png" class="img-fluid mb-3 rounded mindcraft-modal-img" alt="MindCraft Screenshot 1"> <img src="/images/MindCraft2.png" class="img-fluid mb-3 rounded mindcraft-modal-img" alt="MindCraft Screenshot 2"> <img src="/images/MindCraft3.png" class="img-fluid mb-3 rounded mindcraft-modal-img" alt="MindCraft Screenshot 3"> <img src="/images/MindCraft4.png" class="img-fluid mb-3 rounded mindcraft-modal-img" alt="MindCraft Screenshot 4"> <img src="/images/MindCraft5.png" class="img-fluid mb-3 rounded mindcraft-modal-img" alt="MindCraft Screenshot 5"> <img src="/images/MindCraft6.png" class="img-fluid mb-3 rounded mindcraft-modal-img" alt="MindCraft Screenshot 6"> <img src="/images/MindCraft7.png" class="img-fluid mb-3 rounded mindcraft-modal-img" alt="MindCraft Screenshot 7"> </div> </div> </div> </div> </body></html>
